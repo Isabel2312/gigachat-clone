@@ -1,0 +1,6 @@
+.window { display: flex; flex-direction: column; height: 100%; }
+.messages { flex: 1; overflow-y: auto; padding: 16px 0; }
+.empty { display: flex; flex-direction: column; align-items: center; justify-content: center;
+  height: 100%; gap: 12px; color: #666; }
+.empty h1 { font-size: 32px; color: #ececec; }
+.empty { padding-bottom: 0; }

@@ -1,0 +1,26 @@
+.wrapper { display: flex; gap: 12px; padding: 16px 24px; max-width: 800px;
+  margin: 0 auto; width: 100%; }
+.user { flex-direction: row-reverse; }
+.avatar { width: 32px; height: 32px; border-radius: 50%; display: flex;
+  align-items: center; justify-content: center; font-size: 12px; font-weight: 600;
+  flex-shrink: 0; }
+.user .avatar { background: #7c3aed; color: #fff; }
+.assistant .avatar { background: #059669; color: #fff; }
+.bubble { flex: 1; max-width: 680px; position: relative; }
+.user .bubble { display: flex; justify-content: flex-end; }
+.user .bubble p { background: #2d2d2d; padding: 10px 16px; border-radius: 16px 16px 4px 16px;
+  font-size: 15px; line-height: 1.6; max-width: 100%; }
+.assistant .bubble { font-size: 15px; line-height: 1.7; }
+.assistant .bubble :global(code) { background: #1e1e1e; padding: 2px 6px; border-radius: 4px;
+  font-family: 'Fira Code', monospace; font-size: 13px; }
+.assistant .bubble :global(pre) { background: #1a1a1a; padding: 16px; border-radius: 8px;
+  overflow-x: auto; margin: 8px 0; }
+.assistant .bubble :global(h1),.assistant .bubble :global(h2),
+.assistant .bubble :global(h3) { margin: 12px 0 6px; }
+.assistant .bubble :global(ul),.assistant .bubble :global(ol) { padding-left: 20px; }
+.assistant .bubble :global(a) { color: #60a5fa; }
+.copy { position: absolute; top: 0; right: 0; background: #2a2a2a; border: 1px solid #3a3a3a;
+  color: #888; border-radius: 6px; padding: 4px 8px; font-size: 12px; cursor: pointer;
+  opacity: 0; transition: opacity .2s; }
+.bubble:hover .copy { opacity: 1; }
+.copy:hover { color: #fff; }
