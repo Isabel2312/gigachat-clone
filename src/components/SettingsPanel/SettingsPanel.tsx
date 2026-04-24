@@ -11,9 +11,9 @@ export default function SettingsPanel({ onClose }: { onClose: () => void }) {
           onChange={e => setApiToken(e.target.value)} /></label>
         <label>Model<select value={settings.model}
           onChange={e => updateSettings({ model: e.target.value })}>
-          <option value="GigaChat">GigaChat</option>
-          <option value="GigaChat-Plus">GigaChat-Plus</option>
-          <option value="GigaChat-Pro">GigaChat-Pro</option>
+          <option value="gpt-4o-mini">GPT-4o mini</option>
+          <option value="gpt-4o">GPT-4o</option>
+          <option value="gpt-4-turbo">GPT-4 Turbo</option>
         </select></label>
         <label>Temperature: {settings.temperature}
           <input type="range" min="0" max="2" step="0.01" value={settings.temperature}

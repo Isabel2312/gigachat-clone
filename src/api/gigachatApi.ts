@@ -7,25 +7,26 @@ export async function streamChatCompletion(
   onChunk: (text: string) => void,
   signal: AbortSignal
 ): Promise<void> {
-  const body = {
-    model: 'gpt-4o-mini',
-    messages,
-    temperature: settings.temperature,
-    max_tokens: settings.maxTokens,
-    stream: true,
-  };
-
-  const response = await fetch('/openai/v1/chat/completions', {
+  const response = await fetch('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(body),
+    body: JSON.stringify({
+      model: settings.model || 'gpt-4o-mini',
+      messages,
+      temperature: settings.temperature,
+      max_tokens: settings.maxTokens,
+      stream: true,
+    }),
     signal,
   });
 
-  if (!response.ok) throw new Error(`API error: ${response.status}`);
+  if (!response.ok) {
+    const err = await response.json();
+    throw new Error(JSON.stringify(err));
+  }
 
   const reader = response.body!.getReader();
   const decoder = new TextDecoder();

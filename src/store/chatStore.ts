@@ -20,7 +20,7 @@ interface ChatStore {
 }
 
 const defaultSettings: Settings = {
-  model: 'GigaChat',
+  model: 'gpt-4o-mini',
   temperature: 0.87,
   maxTokens: 1024,
   topP: 0.47,
