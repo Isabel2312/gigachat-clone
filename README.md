@@ -1,73 +1,35 @@
-# React + TypeScript + Vite
+# GigaChat Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ChatGPT-подобный интерфейс на базе OpenAI API, созданный в рамках итогового задания по курсу "Основы frontend-разработки". (Gigachat в середине работалы превратился в ChatGPT, я не меняла названия файлов)
 
-Currently, two official plugins are available:
+## Скриншоты
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+<img width="1200" height="1071" alt="image" src="https://github.com/user-attachments/assets/813c7894-7d0e-418d-92a3-2ac648e1d747" />
 
-## React Compiler
+## Функциональность
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Потоковая передача ответов (SSE streaming)
+- Markdown форматирование с подсветкой кода
+- Управление несколькими чатами
+- Сохранение истории в localStorage
+- Автоматическое название чата из первого сообщения
+- Поиск по чатам
+- Копирование ответов
+- Остановка генерации
+- Настройка параметров модели (temperature, max_tokens и др.)
 
-## Expanding the ESLint configuration
+## Запуск
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. Клонировать репозиторий: `git clone https://github.com/Isabel2312/gigachat-clone`
+2. Установить зависимости: `npm install`
+3. Запустить: `npm run dev`
+4. Открыть `http://localhost:5173`
+5. В настройках (⚙) вставить OpenAI API ключ
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Технологии
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- React 18 + TypeScript
+- Zustand (state management)
+- react-markdown + remark-gfm
+- Vite
+- CSS Modules
